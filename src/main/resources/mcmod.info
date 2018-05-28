@@ -1,0 +1,16 @@
+[
+{
+  "modid": "biotechnik",
+  "name": "Bio Technik",
+  "description": "Add new game function. RF Orbs.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["FTB_lag"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
