@@ -33,7 +33,24 @@ minecraft {
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
+repositories {
+    maven {
+        name = "CoFH Maven"
+        url = "http://maven.covers1624.net"
+    }
+    maven {
+        name = "ChickenBones Maven"
+        url = "http://chickenbones.net/maven/"
+    }
+    maven {
+        name = "JEI Maven"
+        url = "http://dvs1.progwml6.com/files/maven"
+    }
+}
+
 dependencies {
+    deobfCompile "cofh:ThermalExpansion:1.12.2-5.4.2.27:universal"
+    deobfCompile "cofh:ThermalDynamics:1.12.2-2.4.1.9:universal"
 }
 
 processResources {
