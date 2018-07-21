@@ -4,6 +4,7 @@ import java.util.List;
 
 import ftblag.biotechnik.BTUtils;
 import ftblag.biotechnik.BioTechnik;
+import ftblag.biotechnik.tab.BTTab;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -22,7 +23,7 @@ public class ItemRFCollector extends Item {
     public ItemRFCollector() {
         setRegistryName(BioTechnik.MODID, "rfcollector");
         setUnlocalizedName(BioTechnik.MODID + "." + "rfcollector");
-        setCreativeTab(CreativeTabs.REDSTONE);
+        setCreativeTab(BTTab.TAB);
         setMaxStackSize(1);
         ForgeRegistries.ITEMS.register(this);
     }

@@ -11,4 +11,5 @@ public class BTConfigGSON {
     ArrayList<String> blackListMobs = new ArrayList<>();
     HashMap<String, Integer> specificDrops = new HashMap<>();
     int maxAmount;
+    int radius;
 }

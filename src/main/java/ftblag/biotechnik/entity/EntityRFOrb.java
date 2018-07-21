@@ -29,7 +29,7 @@ public class EntityRFOrb extends Entity {
     public int orbMaxAge = 150;
     public int orbCooldown;
     private int orbHealth = 5;
-    private int rfValue;
+    public int rfValue;
     private EntityPlayer closestPlayer;
 
     @SideOnly(Side.CLIENT)

@@ -17,6 +17,7 @@ import ftblag.biotechnik.BioTechnik;
 import ftblag.biotechnik.api.BTConfigsAPI;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -76,13 +77,26 @@ public class BTConfigParser {
         cfg.specificDrops.put(new ResourceLocation("spider").toString(), 100);
         cfg.specificDrops.put(new ResourceLocation("creeper").toString(), 100);
         cfg.maxAmount = 1500;
+        cfg.radius = 2;
         FileWriter fw = new FileWriter(file);
         fw.write(gson.toJson(cfg));
         fw.close();
     }
 
     public static boolean isBlackList(Entity entity) {
-        return cfg.blackListMobs.contains(EntityRegistry.getEntry(entity.getClass()).getRegistryName().toString());
+        if (entity == null)
+            return true;
+        EntityEntry entry = EntityRegistry.getEntry(entity.getClass());
+        if (entry == null)
+            return true;
+        ResourceLocation rl = entry.getRegistryName();
+        if (rl == null)
+            return true;
+        return isBlackList(rl.toString());
+    }
+
+    public static boolean isBlackList(String name) {
+        return cfg.blackListMobs.contains(name);
     }
 
     public static boolean hasSpecificDrop(Entity entity) {
@@ -95,5 +109,9 @@ public class BTConfigParser {
 
     public static int getMaxAmount() {
         return cfg.maxAmount;
+    }
+
+    public static int getRadius() {
+        return cfg.radius;
     }
 }

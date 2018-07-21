@@ -8,6 +8,6 @@ import net.minecraft.item.ItemStack;
 public class BTUtils {
 
     public static boolean isOk(ItemStack is) {
-        return is != null && !is.isEmpty();
+        return is != null && !is.isEmpty() && is.getItem() != null;
     }
 }
