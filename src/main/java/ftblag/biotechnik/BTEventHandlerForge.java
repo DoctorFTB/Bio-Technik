@@ -18,7 +18,6 @@ public class BTEventHandlerForge {
         World world = entity.world;
         if (!world.isRemote) {
             if (!BTConfigParser.isBlackList(entity)) {
-                System.out.println(ForgeRegistries.ENTITIES.getKey(entity.getType()));
                 int amount = BTConfigParser.hasSpecificDrop(entity) ? BTConfigParser.getSpecificDrop(entity) : world.rand.nextInt(BTConfigParser.getMaxAmount());
                 EntityRFOrb orb = new EntityRFOrb(world, entity.posX, entity.posY, entity.posZ, amount);
                 world.addEntity(orb);
