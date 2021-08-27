@@ -7,7 +7,6 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -23,7 +22,7 @@ public class BTEventHandlerMod {
 
     @SubscribeEvent
     public static void onItemRegistry(RegistryEvent.Register<Item> event) {
-        event.getRegistry().register(new BlockItem(BioTechnik.extractor, new Item.Properties().tab(BioTechnik.group).addToolType(ToolType.PICKAXE, 2)).setRegistryName(BioTechnik.extractor.getRegistryName()));
+        event.getRegistry().register(new BlockItem(BioTechnik.extractor, new Item.Properties().tab(BioTechnik.group)).setRegistryName(BioTechnik.extractor.getRegistryName()));
         event.getRegistry().register(BioTechnik.collector);
     }
 
