@@ -37,10 +37,10 @@ public class TileEntityRFExtractor extends BlockEntity {
     }
 
     @Override
-    public CompoundTag save(CompoundTag tag) {
+    public void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
         tag.putInt("rf", storage.getEnergyStored());
         tag.putBoolean("collectOrbs", collectOrbs);
-        return super.save(tag);
     }
 
     @Nonnull
@@ -69,6 +69,7 @@ public class TileEntityRFExtractor extends BlockEntity {
                     orb.rfValue -= rem;
                     if (orb.rfValue <= 0)
                         orb.discard();
+                    this.setChanged();
                 }
     }
 
@@ -103,8 +104,10 @@ public class TileEntityRFExtractor extends BlockEntity {
                 } else {
                     // Forge unit
                     IEnergyStorage capability = cap.orElse(null);
-                    if (capability.canReceive())
+                    if (capability.canReceive()) {
                         received = capability.receiveEnergy(rfToGive, false);
+                        this.setChanged();
+                    }
                 }
 
                 energyStored -= received;
@@ -114,7 +117,9 @@ public class TileEntityRFExtractor extends BlockEntity {
             }
         }
 
-        if (energyExtracted > 0)
+        if (energyExtracted > 0) {
             storage.setEnergy(storage.getEnergyStored() - energyExtracted);
+            this.setChanged();
+        }
     }
 }

@@ -40,9 +40,11 @@ public class BlockRFExtractor extends Block implements EntityBlock {
             if (!is.isEmpty() && is.getItem() == BTConfigParser.getExtractorToggle()) {
                 if (!te.collectOrbs) {
                     te.collectOrbs = true;
+                    te.setChanged();
                     player.sendMessage(new TextComponent("Auto collect activated."), Util.NIL_UUID);
                 } else {
                     te.collectOrbs = false;
+                    te.setChanged();
                     player.sendMessage(new TextComponent("Auto collect deactivated."), Util.NIL_UUID);
                 }
             } else if (!is.isEmpty() && is.getItem() instanceof ItemRFCollector) {
@@ -51,6 +53,7 @@ public class BlockRFExtractor extends Block implements EntityBlock {
                 if (store > 0) {
                     int rem = te.storage.setEnergy(Math.min(te.storage.getMaxEnergyStored(), te.storage.getEnergyStored() + store));
                     collector.remRF(is, rem);
+                    te.setChanged();
                 }
                 player.sendMessage(new TextComponent("Capacity energy: " + te.storage.getEnergyStored() + "/" + te.storage.getMaxEnergyStored()), Util.NIL_UUID);
             } else
