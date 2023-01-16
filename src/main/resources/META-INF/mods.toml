@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[44,)"
+license="MIT"
+issueTrackerURL="https://github.com/DoctorFTB/Bio-Technik/issues"
+[[mods]]
+modId="biotechnik"
+version="${file.jarVersion}"
+displayName="Bio Technik"
+displayURL="https://minecraft.curseforge.com/projects/bio-technik"
+authors="FTB_lag"
+description='''
+RF from mobs!
+'''
