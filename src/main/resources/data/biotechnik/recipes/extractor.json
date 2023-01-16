@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ooo",
+    "obo",
+    "ooo"
+  ],
+  "key": {
+    "o": {
+      "item": "minecraft:obsidian"
+    },
+    "b": {
+      "item": "minecraft:stone_bricks"
+    }
+  },
+  "result": {
+    "item": "biotechnik:rfextractor",
+    "count": 1
+  }
+}
